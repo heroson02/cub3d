@@ -6,7 +6,7 @@
 /*   By: kyujlee <kyujlee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 15:30:28 by kyujlee           #+#    #+#             */
-/*   Updated: 2022/05/27 16:44:32 by kyujlee          ###   ########.fr       */
+/*   Updated: 2022/05/27 17:53:01 by kyujlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ void    move_wasd(t_coordinate_d *dest, t_game *game)
     }
     if (game->key_state.a == true)
     {
-        dest->x += player->plane.x * player->move_speed;
-        dest->y += player->plane.y * player->move_speed;
+        dest->x -= player->plane.x * player->move_speed;
+        dest->y -= player->plane.y * player->move_speed;
     }
     if (game->key_state.d == true)
     {
@@ -86,7 +86,7 @@ void    rotate_lr(t_game *game)
 {
     if (game->key_state.l == true)
         rotate(game, game->player.rot_speed);
-    if ((game->key_state.r == true))
+    if (game->key_state.r == true)
         rotate(game, -(game->player.rot_speed));
 }
 

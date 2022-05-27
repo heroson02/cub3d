@@ -6,7 +6,7 @@
 /*   By: kyujlee <kyujlee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 18:09:48 by kyujlee           #+#    #+#             */
-/*   Updated: 2022/05/27 16:15:27 by kyujlee          ###   ########.fr       */
+/*   Updated: 2022/05/27 17:20:21 by kyujlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 int main_loop(t_game *game)
 {
-    t_img_info img;
+    t_img_info screen;
 
 	moving(game);
-    img.img_ptr = mlx_new_image(game->mlx_ptr, width, height);
-	img.addr = mlx_get_data_addr(img.img_ptr, &img.bpp, &img.size_line, &img.endian);
-	draw_ceiling(img, game->map.ceiling);
-	draw_floor(img, game->map.floor);
-    draw_wall(game, &img);
-    mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, img.img_ptr, 0, 0);
-	mlx_destroy_image(game->mlx_ptr, img.img_ptr);
+    screen.img_ptr = mlx_new_image(game->mlx_ptr, width, height);
+	screen.addr = mlx_get_data_addr(screen.img_ptr, &screen.bpp, &screen.size_line, &screen.endian);
+	draw_ceiling(screen, game->map.ceiling);
+	draw_floor(screen, game->map.floor);
+    draw_wall(game, &screen);
+    mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, screen.img_ptr, 0, 0);
+	mlx_destroy_image(game->mlx_ptr, screen.img_ptr);
     return (0);
 }
 

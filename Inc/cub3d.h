@@ -6,7 +6,7 @@
 /*   By: kyujlee <kyujlee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 18:08:52 by kyujlee           #+#    #+#             */
-/*   Updated: 2022/05/27 16:14:49 by kyujlee          ###   ########.fr       */
+/*   Updated: 2022/05/27 17:31:49 by kyujlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 
 #define height 640
 #define width 480
+#define wall_width 64
+#define wall_height 64
 
 enum e_event_index
 {
@@ -84,7 +86,7 @@ typedef struct s_map_info
 	t_img_info	img[4];
 }	t_map_info;
 
-typedef struct s_view
+typedef struct s_dda_calc
 {
 	double			camera_x;
 	t_coordinate_d	ray_dir;
@@ -95,7 +97,20 @@ typedef struct s_view
 	t_coordinate_i	step;
 	int				hit;
 	int				side;
-}	t_view;
+}	t_dda_calc;
+
+typedef struct s_dda_draw
+{
+	int line_height;
+	int	draw_start;
+	int	draw_end;
+	int wall_index;
+	double	wall_x;
+	t_coordinate_i tex;
+	double	step;
+	double	tex_pos;
+	int	color;
+}	t_dda_draw;
 
 typedef struct s_game
 {
@@ -104,7 +119,8 @@ typedef struct s_game
 	t_player		player;
 	t_key			key_state;
 	t_map_info		map;
-	t_view			view;
+	t_dda_calc		dda_calc;
+	t_dda_draw		dda_draw;
 }	t_game;
 
 
@@ -130,7 +146,7 @@ void		draw_wall(t_game *game, t_img_info *img);
 /*
 ** draw_wall2.c --- draw wall / draw wall / MAIN LOGIC
 */
-void		draw_line(t_game *game, t_img_info *img);
+void		draw_line(int x, t_game *game, t_img_info *img);
 
 /*
 ** moving.c --- change value when hook some events

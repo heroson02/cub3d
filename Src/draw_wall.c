@@ -6,7 +6,7 @@
 /*   By: kyujlee <kyujlee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 15:29:18 by kyujlee           #+#    #+#             */
-/*   Updated: 2022/05/27 16:15:00 by kyujlee          ###   ########.fr       */
+/*   Updated: 2022/05/27 17:31:36 by kyujlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ int	worldMap[24][24] = {
 
 void	init_side_dist(t_game *game)
 {
-	t_view *v;
+	t_dda_calc *v;
 
-	v = &game->view;
+	v = &game->dda_calc;
 	if (v->ray_dir.x < 0)
 	{
 		v->step.x = -1;
@@ -69,9 +69,9 @@ void	init_side_dist(t_game *game)
 
 void	init_view(t_game *game, int x)
 {
-	t_view *v;
+	t_dda_calc *v;
 
-	v = &game->view;
+	v = &game->dda_calc;
 	v->camera_x = (2 * x / (double)width) - 1;
 	v->ray_dir.x = game->player.dir.x + game->player.plane.x * v->camera_x;
 	v->ray_dir.y = game->player.dir.y + game->player.plane.y * v->camera_x;
@@ -85,9 +85,9 @@ void	init_view(t_game *game, int x)
 
 void    dda(t_game *game)
 {
-    t_view *v;
+    t_dda_calc *v;
 
-	v = &game->view;
+	v = &game->dda_calc;
     while (v->hit == 0)
     {
         if (v->side_dist.x < v->side_dist.y)
@@ -122,6 +122,6 @@ void	draw_wall(t_game *game, t_img_info *img)
 	{
 		init_view(game, x);
 		dda(game);
-		draw_line(game, img);
+		draw_line(x, game, img);
 	}
 }
