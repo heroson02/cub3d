@@ -6,7 +6,7 @@
 /*   By: kyujlee <kyujlee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 18:08:52 by kyujlee           #+#    #+#             */
-/*   Updated: 2022/05/27 17:31:49 by kyujlee          ###   ########.fr       */
+/*   Updated: 2022/05/30 18:44:08 by kyujlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include "../libft/libft.h"
+#include "../Src/gnl/get_next_line.h"
 
-#define height 640
-#define width 480
+#define height 1240
+#define width 880
 #define wall_width 64
 #define wall_height 64
 
@@ -84,6 +86,9 @@ typedef struct s_map_info
 	int		ceiling;
 	char	*path[4];
 	t_img_info	img[4];
+	char	**map;
+	int		map_fd;
+	t_list	*map_lst;
 }	t_map_info;
 
 typedef struct s_dda_calc
