@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: yson <yson@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/20 17:53:06 by yson              #+#    #+#             */
-/*   Updated: 2022/05/20 18:03:47 by yson             ###   ########.fr       */
+/*   Created: 2021/05/11 16:31:59 by yson              #+#    #+#             */
+/*   Updated: 2021/05/11 18:42:54 by yson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-#define CUB3D_H
+#include "libft.h"
 
-#include <fcntl.h>
-#include <unistd.h>
-#include <math.h>
-
-typedef struct s_info
+void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	char **map;
-}	t_info;
-
-#endif
+	if (!lst)
+		return ;
+	del(lst->content);
+	free(lst);
+}
