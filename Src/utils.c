@@ -6,7 +6,7 @@
 /*   By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 15:24:18 by kyujlee           #+#    #+#             */
-/*   Updated: 2022/05/31 20:31:39 by yson             ###   ########.fr       */
+/*   Updated: 2022/05/31 23:35:14 by yson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ t_img_info	load_img(void *mlx, int w, int h, char *path,void *win_ptr)
 	t_img_info	img;
 	void		*temp;
 
+	(void)win_ptr;
 	temp = mlx_xpm_file_to_image(mlx, path, &w, &h);
 	if (!temp)
 		err_exit("Wrong file");

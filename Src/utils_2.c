@@ -6,7 +6,7 @@
 /*   By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 18:21:13 by yson              #+#    #+#             */
-/*   Updated: 2022/05/31 23:25:59 by yson             ###   ########.fr       */
+/*   Updated: 2022/05/31 23:33:52 by yson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ int	ft_atoi_ad(const char *str)
 
 void	get_width_height(int *wid, int *hei, t_list *head)
 {
-	int		size;
-	int		longest_width;
+	int				size;
+	unsigned int	longest_width;
 	t_list	*curr;
 
 	size = 0;

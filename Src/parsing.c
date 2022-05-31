@@ -6,7 +6,7 @@
 /*   By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 18:25:36 by yson              #+#    #+#             */
-/*   Updated: 2022/05/31 23:28:14 by yson             ###   ########.fr       */
+/*   Updated: 2022/05/31 23:34:07 by yson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,9 +122,6 @@ void	remove_space(char **str, t_type type)
 
 void	handle_texture(t_game *game, char *path, t_type type)
 {
-	int		x;
-	int		y;
-
 	if (type == E_NO)
 		game->map.img[0] = load_img(game->mlx_ptr, wall_width, wall_height, path, game->win_ptr);
 	else if (type == E_EA)
