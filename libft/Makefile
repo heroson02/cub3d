@@ -44,7 +44,7 @@ BONUSSRCS = ft_lstnew.c		\
 			ft_lstprint.c	\
 			ft_lstmap.c
 CC = gcc
-CFLAGS= -Wextra -Werror -Wall
+CFLAGS= -Wextra -Werror -Wall -g3 -fsanitize=address
 AR = ar -rcs
 OBJ = $(SRCS:.c=.o)
 BONUSOBJ = $(BONUSSRCS:.c=.o)

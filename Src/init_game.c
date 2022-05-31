@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyujlee <kyujlee@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 15:23:49 by kyujlee           #+#    #+#             */
-/*   Updated: 2022/05/30 18:26:22 by kyujlee          ###   ########.fr       */
+/*   Updated: 2022/05/31 20:07:22 by yson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void    init_player(t_player *player)
 	player->move_speed = 0.1;
 	player->rot_speed = 0.1;
 }
-
 
 void init_map_info(void *mlx_ptr, t_map_info *map, void *win_ptr)
 {   

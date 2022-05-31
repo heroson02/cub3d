@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyujlee <kyujlee@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 18:08:52 by kyujlee           #+#    #+#             */
-/*   Updated: 2022/05/30 18:44:08 by kyujlee          ###   ########.fr       */
+/*   Updated: 2022/05/31 20:26:26 by yson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <fcntl.h>
 #include "../libft/libft.h"
 #include "../Src/gnl/get_next_line.h"
 
@@ -84,11 +85,13 @@ typedef struct s_map_info
 {
 	int		floor;
 	int		ceiling;
-	char	*path[4];
 	t_img_info	img[4];
+	char	**path[4];
 	char	**map;
 	int		map_fd;
 	t_list	*map_lst;
+	int		ceiling_flag;
+	int		floor_flag;
 }	t_map_info;
 
 typedef struct s_dda_calc
@@ -128,6 +131,17 @@ typedef struct s_game
 	t_dda_draw		dda_draw;
 }	t_game;
 
+typedef enum e_type
+{
+	E_ERROR = 0,
+	E_NO,
+	E_SO,
+	E_WE,
+	E_EA,
+	E_FLOOR,
+	E_CEILING,
+	E_MAP
+}	t_type;
 
 /*
 ** init_game.c --- initializing the struct 'game' except view
@@ -168,7 +182,22 @@ int			key_press(int keycode, t_game *game);
 int			key_release(int keycode, t_game *game);
 
 /*
+** utils_2.c --- utilities
+*/
+
+void	err_exit(char *str);
+int	ft_strcmp(char *s1, char *s2);
+void	free_split(char **split);
+int	ft_atoi_ad(const char *str);
+
+/*
 ** init.c --- related to init_info
 */
+
+/*
+** parsing.c --- parse map and check validity
+*/
+void read_map(t_game *game);
+int	arg_check(int argc, char **argv, t_map_info *info);
 
 #endif

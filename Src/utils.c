@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyujlee <kyujlee@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 15:24:18 by kyujlee           #+#    #+#             */
-/*   Updated: 2022/05/30 18:23:15 by kyujlee          ###   ########.fr       */
+/*   Updated: 2022/05/31 20:31:39 by yson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,12 @@ int	end_program(void)
 t_img_info	load_img(void *mlx, int w, int h, char *path,void *win_ptr)
 {
 	t_img_info	img;
+	void		*temp;
 
-	img.img_ptr = mlx_xpm_file_to_image(mlx, path, &w, &h);
+	temp = mlx_xpm_file_to_image(mlx, path, &w, &h);
+	if (!temp)
+		err_exit("Wrong file");
+	img.img_ptr = temp;
 	img.addr = mlx_get_data_addr(img.img_ptr, &img.bpp, &img.size_line, &img.endian);
 	return (img);
 }
