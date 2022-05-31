@@ -16,6 +16,7 @@ SRCS =	ft_atoi.c \
 		ft_strdup.c	\
 		ft_strlcat.c	\
 		ft_strlcpy.c	\
+		ft_strncpy.c	\
 		ft_strlen.c	\
 		ft_strncmp.c	\
 		ft_strnstr.c	\
@@ -44,7 +45,7 @@ BONUSSRCS = ft_lstnew.c		\
 			ft_lstprint.c	\
 			ft_lstmap.c
 CC = gcc
-CFLAGS= -Wextra -Werror -Wall -g3 -fsanitize=address
+CFLAGS= -Wextra -Werror -Wall
 AR = ar -rcs
 OBJ = $(SRCS:.c=.o)
 BONUSOBJ = $(BONUSSRCS:.c=.o)

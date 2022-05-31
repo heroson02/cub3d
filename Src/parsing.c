@@ -6,7 +6,7 @@
 /*   By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 18:25:36 by yson              #+#    #+#             */
-/*   Updated: 2022/05/31 20:31:41 by yson             ###   ########.fr       */
+/*   Updated: 2022/05/31 23:28:14 by yson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -192,4 +192,5 @@ void read_map(t_game *game)
 	}
 	if (!map_info_check(&game->map))
 		err_exit("Wrong sources");
+	game->map.map = lst_to_arr(game->map.map_lst);
 }

@@ -6,7 +6,7 @@
 /*   By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 16:23:10 by yson              #+#    #+#             */
-/*   Updated: 2022/05/30 16:38:21 by yson             ###   ########.fr       */
+/*   Updated: 2022/05/31 23:20:30 by yson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void				*ft_memchr(const void *s, int c, unsigned int n);
 int					ft_memcmp(const void *s1, const void *s2, unsigned int n);
 unsigned int		ft_strlen(const char *str);
 unsigned int		ft_strlcpy(char *dest, const char *src, unsigned int size);
+char				*ft_strncpy(char *dest, char *src, unsigned int n);
 unsigned int		ft_strlcat(char *dest, const char *src, unsigned int size);
 char				*ft_strrchr(const char *str, int c);
 char				*ft_strchr(const char *str, int c);

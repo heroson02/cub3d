@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstprint.c                                      :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/30 16:36:05 by yson              #+#    #+#             */
-/*   Updated: 2022/05/31 23:21:00 by yson             ###   ########.fr       */
+/*   Created: 2022/05/31 23:19:51 by yson              #+#    #+#             */
+/*   Updated: 2022/05/31 23:25:42 by yson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstprint(t_list *lst)
+char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	t_list	*curr;
+	unsigned int	i;
 
-	if (!lst)
-		return ;
-	curr = lst;
-	while (curr)
+	i = 0;
+	while (src[i] != '\0' && i < n)
 	{
-		ft_putendl_fd(curr->content, 1);
-		curr = curr->next;
+		dest[i] = src[i];
+		i++;
 	}
+	while (i < n)
+		i++;
+	return (dest);
 }

@@ -6,7 +6,7 @@
 /*   By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 18:08:52 by kyujlee           #+#    #+#             */
-/*   Updated: 2022/05/31 20:26:26 by yson             ###   ########.fr       */
+/*   Updated: 2022/05/31 22:52:51 by yson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -189,6 +189,7 @@ void	err_exit(char *str);
 int	ft_strcmp(char *s1, char *s2);
 void	free_split(char **split);
 int	ft_atoi_ad(const char *str);
+char	**lst_to_arr(t_list *head);
 
 /*
 ** init.c --- related to init_info
