@@ -6,11 +6,24 @@
 /*   By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 18:09:48 by kyujlee           #+#    #+#             */
-/*   Updated: 2022/05/31 23:32:50 by yson             ###   ########.fr       */
+/*   Updated: 2022/06/14 00:08:37 by yson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Inc/cub3d.h"
+
+//테스트용 함수이니 지우기
+void split_print(char **split)
+{
+	int i = 0;
+
+	while (split[i])
+	{
+		printf("|%s|\n", split[i]);
+		i++;
+	}
+}
+//
 
 int main_loop(t_game *game)
 {
@@ -33,6 +46,7 @@ void init_game(t_game *game)
 	init_key_state(&game->key_state);
     game->mlx_ptr = mlx_init();
 	read_map(game);
+	split_print(game->map.map);
     // init_map_info(game->mlx_ptr, &game->map, game->win_ptr);
     game->win_ptr = mlx_new_window(game->mlx_ptr, width, height, "cub3D");
 }

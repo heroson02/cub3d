@@ -6,7 +6,7 @@
 /*   By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 18:08:52 by kyujlee           #+#    #+#             */
-/*   Updated: 2022/05/31 23:35:03 by yson             ###   ########.fr       */
+/*   Updated: 2022/06/14 00:07:07 by yson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,10 +83,12 @@ typedef struct	s_img_info
 
 typedef struct s_map_info
 {
+	int		map_width;
+	int		map_height;
 	int		floor;
 	int		ceiling;
 	t_img_info	img[4];
-	char	**path[4];
+	// char	**path[4];
 	char	**map;
 	int		map_fd;
 	t_list	*map_lst;
@@ -189,7 +191,7 @@ void	err_exit(char *str);
 int	ft_strcmp(char *s1, char *s2);
 void	free_split(char **split);
 int	ft_atoi_ad(const char *str);
-char	**lst_to_arr(t_list *head);
+char	**lst_to_arr(t_game *game, t_list *head);
 
 /*
 ** init.c --- related to init_info
@@ -201,4 +203,7 @@ char	**lst_to_arr(t_list *head);
 void read_map(t_game *game);
 int	arg_check(int argc, char **argv, t_map_info *info);
 
+
+//테스트용 함수
+void split_print(char **split);
 #endif
