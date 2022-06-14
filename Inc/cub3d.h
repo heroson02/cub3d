@@ -6,7 +6,7 @@
 /*   By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 18:08:52 by kyujlee           #+#    #+#             */
-/*   Updated: 2022/06/14 00:07:07 by yson             ###   ########.fr       */
+/*   Updated: 2022/06/14 17:56:44 by yson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -198,11 +198,15 @@ char	**lst_to_arr(t_game *game, t_list *head);
 */
 
 /*
-** parsing.c --- parse map and check validity
+** parsing.c --- parse .cub file and check validity
 */
 void read_map(t_game *game);
 int	arg_check(int argc, char **argv, t_map_info *info);
 
+/*
+** check_map.c --- check map
+*/
+void	check_map(t_game *game);
 
 //테스트용 함수
 void split_print(char **split);

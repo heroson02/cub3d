@@ -6,7 +6,7 @@
 /*   By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 18:21:13 by yson              #+#    #+#             */
-/*   Updated: 2022/06/14 00:08:16 by yson             ###   ########.fr       */
+/*   Updated: 2022/06/14 18:25:21 by yson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@ void	err_exit(char *str)
 	ft_putstr_fd("Error : ", 2);
 	ft_putendl_fd(str, 2);
 	exit(1);
+}
+
+void	free_node(void *content)
+{
+	free(content);
+	content = 0;
 }
 
 void	free_split(char **split)
@@ -86,7 +92,7 @@ void	fill_with_space(char **map, int wid, int hei)
 	int i;
 
 	i = 0;
-	printf("width : %d, height : %d\n", wid, hei);
+	// printf("width : %d, height : %d\n", wid, hei);
 	while (i < hei)
 	{
 		map[i] = malloc(wid + 1);
@@ -117,6 +123,6 @@ char	**lst_to_arr(t_game *game, t_list *head)
 		curr = curr->next;
 		i++;
 	}
-	//리스트 초기화하기
+	ft_lstclear(&head, free_node);
 	return (result);
 }
