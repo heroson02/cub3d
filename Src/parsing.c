@@ -6,7 +6,7 @@
 /*   By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 18:25:36 by yson              #+#    #+#             */
-/*   Updated: 2022/06/15 17:14:37 by yson             ###   ########.fr       */
+/*   Updated: 2022/06/15 18:05:35 by yson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,8 +156,15 @@ void	handle_color(t_map_info *info, char *str, t_type type)
 	free_split(split);
 }
 
-int	handle_source(t_game *game, char *str, t_type type)
+// int	is_repeated(t_game *game, t_type type)
+// {
+	
+// }
+
+void	handle_source(t_game *game, char *str, t_type type)
 {
+	// if (!is_repeated(game, type))
+	// 	err_exit("source repeated");
 	remove_space(&str, type);
 	if (type == E_NO || type == E_SO || type == E_WE || type == E_EA)
 		handle_texture(game, str, type);
@@ -166,7 +173,6 @@ int	handle_source(t_game *game, char *str, t_type type)
 	else
 		ft_lstadd_back(&game->map.map_lst, ft_lstnew(ft_strdup(str)));
 	free(str);
-	return (1);
 }
 
 void read_map(t_game *game)

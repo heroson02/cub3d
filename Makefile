@@ -6,7 +6,7 @@
 #    By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/24 18:07:01 by kyujlee           #+#    #+#              #
-#    Updated: 2022/06/15 17:15:29 by yson             ###   ########.fr        #
+#    Updated: 2022/06/15 19:24:32 by yson             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,12 +19,13 @@ SRCS =		$(SRC_DIR)/gnl/get_next_line_utils.c	\
 	   		$(SRC_DIR)/draw_wall.c \
 	   		$(SRC_DIR)/draw_wall2.c \
 	   		$(SRC_DIR)/check_map.c \
+	   		$(SRC_DIR)/convert_map.c \
 	   		$(SRC_DIR)/init_game.c \
 	   		$(SRC_DIR)/moving.c \
 	   		$(SRC_DIR)/utils.c
 CC = cc
-CFLAGS= -Wextra -Werror -Wall
-# CFLAGS= -g3 -fsanitize=address
+# CFLAGS= -Wextra -Werror -Wall
+CFLAGS= -g3 -fsanitize=address
 MLX_PATH = opengl
 MLXFLAGS = -L$(MLX_PATH) -lmlx -framework OpenGL -framework AppKit
 HEADER = include

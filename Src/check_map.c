@@ -6,13 +6,13 @@
 /*   By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 20:29:59 by yson              #+#    #+#             */
-/*   Updated: 2022/06/15 17:33:43 by yson             ###   ########.fr       */
+/*   Updated: 2022/06/15 18:19:16 by yson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Inc/cub3d.h"
 
-void	handle_character(t_game *game, char c)
+void	handle_character(t_game *game, char c, int row, int col)
 {
 	if (c == 'N')
 		rotate_camera(game, camera_flag('N'));
@@ -22,6 +22,8 @@ void	handle_character(t_game *game, char c)
 		rotate_camera(game, camera_flag('E'));
 	else if (c == 'W')
 		rotate_camera(game, camera_flag('W'));
+	game->player.pos.x = row + 0.5;
+	game->player.pos.y = col + 0.5;
 }
 
 int	count_source(t_game *game, char **map)
@@ -40,7 +42,7 @@ int	count_source(t_game *game, char **map)
 			if (ft_strchr("NSEW", map[i][j]))
 			{
 				(void)game;
-				// handle_character(game, map[i][j]);
+				handle_character(game, map[i][j], i, j);
 				count++;
 			}
 			j++;

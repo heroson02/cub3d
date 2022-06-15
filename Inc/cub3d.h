@@ -6,7 +6,7 @@
 /*   By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 18:08:52 by kyujlee           #+#    #+#             */
-/*   Updated: 2022/06/15 17:36:40 by yson             ###   ########.fr       */
+/*   Updated: 2022/06/15 18:59:44 by yson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ typedef struct s_map_info
 	int		ceiling;
 	t_img_info	img[4];
 	char	**map;
+	int		**world_map;
 	int		map_fd;
 	t_list	*map_lst;
 	int		ceiling_flag;
@@ -213,6 +214,12 @@ int	arg_check(int argc, char **argv, t_map_info *info);
 */
 void	check_map(t_game *game);
 
+/*
+** convert_map.c --- convert map
+*/
+void	convert_map(t_game *game);
+
 //테스트용 함수
 void split_print(t_game *game, char **split);
+void split_print_int(t_game *game, int **split);
 #endif
