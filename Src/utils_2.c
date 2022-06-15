@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyujlee <kyujlee@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 18:21:13 by yson              #+#    #+#             */
-/*   Updated: 2022/05/30 18:24:08 by kyujlee          ###   ########.fr       */
+/*   Updated: 2022/05/31 23:33:52 by yson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,65 @@ int	ft_atoi_ad(const char *str)
 		i++;
 	}
 	return (ft_atoi(str));
+}
+
+void	get_width_height(int *wid, int *hei, t_list *head)
+{
+	int				size;
+	unsigned int	longest_width;
+	t_list	*curr;
+
+	size = 0;
+	curr = head;
+	longest_width = ft_strlen(head->content);
+	while (curr)
+	{
+		if (longest_width < ft_strlen(curr->content))
+			longest_width = ft_strlen(curr->content);
+		size++;
+		curr = curr->next;
+	}
+	*wid = longest_width;
+	*hei = size;
+}
+
+void	fill_with_space(char **map, int wid, int hei)
+{
+	int i;
+
+	i = 0;
+	while (i < hei)
+	{
+		map[i] = malloc(wid + 1);
+		if (!map[i])
+			err_exit("malloc error");
+		ft_memset(map[i], '0', wid);
+		map[i][wid] = '\0';
+		i++;
+	}
+}
+
+char	**lst_to_arr(t_list *head)
+{
+	int		wid;
+	int		hei;
+	int		i;
+	char	**result;
+	t_list	*curr;
+
+	i = 0;
+	curr = head;
+	get_width_height(&wid, &hei, head);
+	result = malloc(sizeof(char *) * (hei + 1));
+	if (!result)
+		err_exit("malloc error");
+	fill_with_space(result, wid, hei);
+	while (i < hei)
+	{
+		ft_strncpy(result[i], curr->content, sizeof(curr->content));
+		curr = curr->next;
+		i++;
+	}
+	//리스트 초기화하기
+	return (result);
 }

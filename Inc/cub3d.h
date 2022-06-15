@@ -6,25 +6,31 @@
 /*   By: kyujlee <kyujlee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 18:08:52 by kyujlee           #+#    #+#             */
-/*   Updated: 2022/05/30 18:44:08 by kyujlee          ###   ########.fr       */
+/*   Updated: 2022/06/15 17:00:16 by kyujlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
-#define CUB3D_H
-#include <mlx.h>
-#include <math.h>
-#include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-#include "../libft/libft.h"
-#include "../Src/gnl/get_next_line.h"
+# define CUB3D_H
+# include <mlx.h>
+# include <math.h>
+# include <string.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <stdbool.h>
+# include <fcntl.h>
+# include "../libft/libft.h"
+# include "../Src/gnl/get_next_line.h"
 
-#define height 1240
-#define width 880
-#define wall_width 64
-#define wall_height 64
+# define HEIGHT 1240
+# define WIDTH 880
+# define WALL_WIDTH 64
+# define WALL_HEIGHT 64
+# define NORTH_RADIANS 0
+# define SOUTH_RADIANS 3.14159265358979323846
+# define EAST_RADIANS  4.71238898038468967399
+# define WEST_RADIANS  1.57079632679489661923 
+
 
 enum e_event_index
 {
@@ -52,14 +58,14 @@ typedef struct s_key
 
 typedef struct s_coordinate_i
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 }	t_coordinate_i;
 
 typedef struct s_coordinate_d
 {
-	double x;
-	double y;
+	double	x;
+	double	y;
 }	t_coordinate_d;
 
 typedef struct s_player
@@ -71,7 +77,7 @@ typedef struct s_player
 	double			rot_speed;
 }	t_player;
 
-typedef struct	s_img_info
+typedef struct s_img_info
 {
 	char	*addr;
 	void	*img_ptr;
@@ -82,13 +88,15 @@ typedef struct	s_img_info
 
 typedef struct s_map_info
 {
-	int		floor;
-	int		ceiling;
-	char	*path[4];
+	int			floor;
+	int			ceiling;
 	t_img_info	img[4];
-	char	**map;
-	int		map_fd;
-	t_list	*map_lst;
+	char		**path[4];
+	char		**map;
+	int			map_fd;
+	t_list		*map_lst;
+	int			ceiling_flag;
+	int			floor_flag;
 }	t_map_info;
 
 typedef struct s_dda_calc
@@ -106,15 +114,15 @@ typedef struct s_dda_calc
 
 typedef struct s_dda_draw
 {
-	int line_height;
-	int	draw_start;
-	int	draw_end;
-	int wall_index;
-	double	wall_x;
-	t_coordinate_i tex;
-	double	step;
-	double	tex_pos;
-	int	color;
+	int				line_height;
+	int				draw_start;
+	int				draw_end;
+	int				wall_index;
+	double			wall_x;
+	t_coordinate_i	tex;
+	double			step;
+	double			tex_pos;
+	int				color;
 }	t_dda_draw;
 
 typedef struct s_game
@@ -128,47 +136,73 @@ typedef struct s_game
 	t_dda_draw		dda_draw;
 }	t_game;
 
+typedef enum e_type
+{
+	E_ERROR = 0,
+	E_NO,
+	E_SO,
+	E_WE,
+	E_EA,
+	E_FLOOR,
+	E_CEILING,
+	E_MAP
+}	t_type;
 
 /*
 ** init_game.c --- initializing the struct 'game' except view
 */
-void		init_key_state(t_key *key);
-void    	init_player(t_player *player);
-void		init_map_info(void *mlx_ptr, t_map_info *map, void *win_ptr);
-
+void	init_key_state(t_key *key);
+void    init_player(t_game *game, t_player *player);
+void	init_map_info(void *mlx_ptr, t_map_info *map, void *win_ptr);
 
 /*
 ** draw_background.c --- draw background
 */
-void		draw_ceiling(t_img_info img, int ceiling);
-void		draw_floor(t_img_info img, int floor);
+void	draw_ceiling(t_img_info img, int ceiling);
+void	draw_floor(t_img_info img, int floor);
 
 /*
 ** draw_wall.c --- draw wall / raycasting / MAIN LOGIC
 */
-void		draw_wall(t_game *game, t_img_info *img);
+void	draw_wall(t_game *game, t_img_info *img);
 
 /*
 ** draw_wall2.c --- draw wall / draw wall / MAIN LOGIC
 */
-void		draw_line(int x, t_game *game, t_img_info *img);
+void	draw_line(int x, t_game *game, t_img_info *img);
 
 /*
 ** moving.c --- change value when hook some events
 */
-void    	moving(t_game *game);
+void	moving(t_game *game);
 
 /*
 ** utils.c --- utilities
 */
-int			end_program(void);
+int		end_program(void);
 t_img_info	load_img(void *mlx, int w, int h,
-				char *path,void *win_ptr);
-int			key_press(int keycode, t_game *game);
-int			key_release(int keycode, t_game *game);
+			char *path, void *win_ptr);
+int		key_press(int keycode, t_game *game);
+int		key_release(int keycode, t_game *game);
+
+/*
+** utils_2.c --- utilities
+*/
+
+void	err_exit(char *str);
+int		ft_strcmp(char *s1, char *s2);
+void	free_split(char **split);
+int		ft_atoi_ad(const char *str);
+char	**lst_to_arr(t_list *head);
 
 /*
 ** init.c --- related to init_info
 */
+
+/*
+** parsing.c --- parse map and check validity
+*/
+void read_map(t_game *game);
+int	arg_check(int argc, char **argv, t_map_info *info);
 
 #endif
