@@ -6,7 +6,7 @@
 /*   By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 20:29:59 by yson              #+#    #+#             */
-/*   Updated: 2022/06/14 18:19:55 by yson             ###   ########.fr       */
+/*   Updated: 2022/06/15 16:03:04 by yson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ int	count_source(t_game *game, char **map)
 
 	count = 0;
 	i = 0;
-	while (map[i])
+	while (map[i] && i < game->map.map_height)
 	{
 		j = 0;
-		while (map[i][j])
+		while (map[i][j] && j < game->map.map_width)
 		{
 			if (ft_strchr("NSEW", map[i][j]))
 			{
@@ -70,10 +70,10 @@ int	wall_surrounded(t_game *game, int row, int col)
 
 int	wall_check(t_game *game, int i, int j, char **map)
 {
-	while (map[i])
+	while (map[i] && i < game->map.map_height)
 	{
 		j = 0;
-		while (map[i][j])
+		while (map[i][j] && j < game->map.map_width)
 		{
 			if (ft_strchr("1 ", map[i][j]))
 			{
