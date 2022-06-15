@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyujlee <kyujlee@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 18:08:52 by kyujlee           #+#    #+#             */
-/*   Updated: 2022/06/15 17:00:16 by kyujlee          ###   ########.fr       */
+/*   Updated: 2022/06/15 17:15:16 by yson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,15 +88,16 @@ typedef struct s_img_info
 
 typedef struct s_map_info
 {
-	int			floor;
-	int			ceiling;
+	int		map_width;
+	int		map_height;
+	int		floor;
+	int		ceiling;
 	t_img_info	img[4];
-	char		**path[4];
-	char		**map;
-	int			map_fd;
-	t_list		*map_lst;
-	int			ceiling_flag;
-	int			floor_flag;
+	char	**map;
+	int		map_fd;
+	t_list	*map_lst;
+	int		ceiling_flag;
+	int		floor_flag;
 }	t_map_info;
 
 typedef struct s_dda_calc
@@ -190,19 +191,26 @@ int		key_release(int keycode, t_game *game);
 */
 
 void	err_exit(char *str);
-int		ft_strcmp(char *s1, char *s2);
+int	ft_strcmp(char *s1, char *s2);
 void	free_split(char **split);
-int		ft_atoi_ad(const char *str);
-char	**lst_to_arr(t_list *head);
+int	ft_atoi_ad(const char *str);
+char	**lst_to_arr(t_game *game, t_list *head);
 
 /*
 ** init.c --- related to init_info
 */
 
 /*
-** parsing.c --- parse map and check validity
+** parsing.c --- parse .cub file and check validity
 */
 void read_map(t_game *game);
 int	arg_check(int argc, char **argv, t_map_info *info);
 
+/*
+** check_map.c --- check map
+*/
+void	check_map(t_game *game);
+
+//테스트용 함수
+void split_print(t_game *game, char **split);
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyujlee <kyujlee@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 18:25:36 by yson              #+#    #+#             */
-/*   Updated: 2022/06/15 14:43:53 by kyujlee          ###   ########.fr       */
+/*   Updated: 2022/06/15 17:14:37 by yson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ void	remove_space(char **str, t_type type)
 		err_exit("malloc error");
 	count = count_arr(split);
 	if (count > 2 || count < 2)
-		err_exit("Wrong amount of key (texture)");
+		err_exit("wrong amount of value");
 	free(*str);
 	*str = ft_strdup(split[1]);
 	free_split(split);
@@ -142,7 +142,7 @@ void	handle_color(t_map_info *info, char *str, t_type type)
 		err_exit("malloc error");
 	count = count_arr(split);
 	if (count > 3 || count < 3)
-		err_exit("Wrong amount of key (rgb)");
+		err_exit("wrong amount of value");
 	if (type == E_FLOOR)
 	{
 		info->floor = ft_atoi_ad(split[0]) << 16 | ft_atoi_ad(split[1]) << 8 | ft_atoi_ad(split[2]);
@@ -184,10 +184,10 @@ void read_map(t_game *game)
 			break ;
 		type = source_type(temp);
 		if (type == E_ERROR)
-			err_exit("Wrong source id");
+			err_exit("Wrong map source");
 		handle_source(game, temp, type);
 	}
 	if (!map_info_check(&game->map))
 		err_exit("Wrong sources");
-	game->map.map = lst_to_arr(game->map.map_lst);
+	game->map.map = lst_to_arr(game, game->map.map_lst);
 }
