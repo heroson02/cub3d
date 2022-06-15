@@ -6,7 +6,7 @@
 /*   By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 21:01:02 by yson              #+#    #+#             */
-/*   Updated: 2022/06/15 22:39:29 by yson             ###   ########.fr       */
+/*   Updated: 2022/06/15 22:54:58 by yson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,27 @@ void	handle_color(t_map_info *info, char *str, t_type type)
 	free_split(split);
 }
 
-// int	is_repeated(t_game *game, t_type type)
-// {
-// }
+int	is_repeated(t_game *game, t_type type)
+{
+	if (type == E_NO && game->map.img[0].img_ptr)
+		return (1);
+	else if (type == E_EA && game->map.img[1].img_ptr)
+		return (1);
+	else if (type == E_WE && game->map.img[2].img_ptr)
+		return (1);
+	else if (type == E_SO && game->map.img[3].img_ptr)
+		return (1);
+	else if (type == E_FLOOR && game->map.floor_flag)
+		return (1);
+	else if (type == E_CEILING && game->map.ceiling_flag)
+		return (1);
+	return (0);
+}
 
 void	handle_source(t_game *game, char *str, t_type type)
 {
-	// if (!is_repeated(game, type))
-	// 	err_exit("source repeated");
+	if (is_repeated(game, type))
+		err_exit("source repeated");
 	remove_space(&str, type);
 	if (type == E_NO || type == E_SO || type == E_WE || type == E_EA)
 		handle_texture(game, str, type);
