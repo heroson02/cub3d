@@ -6,12 +6,11 @@
 #    By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/24 18:07:01 by kyujlee           #+#    #+#              #
-#    Updated: 2022/06/15 22:39:24 by yson             ###   ########.fr        #
+#    Updated: 2022/06/15 23:50:17 by yson             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS =		$(SRC_DIR)/gnl/get_next_line_utils.c	\
-			$(SRC_DIR)/gnl/get_next_line.c			\
+SRCS =		$(SRC_DIR)/gnl/get_next_line.c			\
 			$(SRC_DIR)/utils_2.c						\
 			$(SRC_DIR)/cub3d.c \
 	   		$(SRC_DIR)/parsing.c \
