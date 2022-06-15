@@ -6,7 +6,7 @@
 /*   By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 18:09:48 by kyujlee           #+#    #+#             */
-/*   Updated: 2022/06/14 18:20:24 by yson             ###   ########.fr       */
+/*   Updated: 2022/06/15 15:51:00 by yson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ void init_game(t_game *game)
 	read_map(game);
 	check_map(game);
 	// split_print(game->map.map);
-    // init_map_info(game->mlx_ptr, &game->map, game->win_ptr);
     game->win_ptr = mlx_new_window(game->mlx_ptr, width, height, "cub3D");
 }
 
