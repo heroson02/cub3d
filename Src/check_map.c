@@ -6,7 +6,7 @@
 /*   By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 20:29:59 by yson              #+#    #+#             */
-/*   Updated: 2022/06/15 18:19:16 by yson             ###   ########.fr       */
+/*   Updated: 2022/06/15 20:52:04 by yson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	handle_character(t_game *game, char c, int row, int col)
 
 int	count_source(t_game *game, char **map)
 {
-	int count;
+	int	count;
 	int	i;
 	int	j;
 
@@ -56,11 +56,11 @@ int	count_source(t_game *game, char **map)
 
 int	wall_surrounded(t_game *game, int row, int col)
 {
-	char **map;
+	char	**map;
 
 	map = game->map.map;
-	if (row <= 0 || row >= game->map.map_height - 1 || col <= 0 ||
-		col >= game->map.map_width - 1)
+	if (row <= 0 || row >= game->map.map_height - 1 || col <= 0
+		|| col >= game->map.map_width - 1)
 		return (0);
 	else if (map[row - 1][col] == ' ' || map[row - 1][col] == '\0')
 		return (0);
@@ -83,7 +83,7 @@ int	wall_check(t_game *game, int i, int j, char **map)
 			if (ft_strchr("1 ", map[i][j]))
 			{
 				j++;
-				continue;
+				continue ;
 			}
 			else if (ft_strchr("NSFW0", map[i][j]))
 			{

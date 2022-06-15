@@ -6,7 +6,7 @@
 /*   By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 18:33:00 by yson              #+#    #+#             */
-/*   Updated: 2022/06/15 19:08:43 by yson             ###   ########.fr       */
+/*   Updated: 2022/06/15 20:53:37 by yson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,11 @@ int	convert_source(char c)
 	return (0);
 }
 
-void	convert_map(t_game *game)
+void	convert_map(t_game *game, int i, int j)
 {
-	int i;
-	int j;
-	int **map;
-	char **pre_map;
+	int		**map;
+	char	**pre_map;
 
-	i = 0;
 	pre_map = game->map.map;
 	map = malloc(sizeof(int *) * game->map.map_height);
 	if (!map)
@@ -53,23 +50,4 @@ void	convert_map(t_game *game)
 		i++;
 	}
 	game->map.world_map = map;
-	
-
-	// i = 0;
-	// j = 0;
-
-	// while (map[i] && i < game->map.map_height)
-	// {
-	// 	printf("|");
-	// 	j = 0;
-	// 	while (map[i][j] && j < game->map.map_width)
-	// 	{
-	// 		printf("%d", map[i][j]);
-	// 		j++;
-	// 	}
-	// 	printf("|\n");
-	// 	i++;
-	// }
-
-	// free_split(pre_map);
 }

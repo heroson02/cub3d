@@ -6,7 +6,7 @@
 /*   By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 18:08:52 by kyujlee           #+#    #+#             */
-/*   Updated: 2022/06/15 18:59:44 by yson             ###   ########.fr       */
+/*   Updated: 2022/06/15 20:58:08 by yson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -196,6 +196,7 @@ int	ft_strcmp(char *s1, char *s2);
 void	free_split(char **split);
 int	ft_atoi_ad(const char *str);
 char	**lst_to_arr(t_game *game, t_list *head);
+int	count_arr(char **str);
 
 /*
 ** init.c --- related to init_info
@@ -217,7 +218,7 @@ void	check_map(t_game *game);
 /*
 ** convert_map.c --- convert map
 */
-void	convert_map(t_game *game);
+void	convert_map(t_game *game, int i, int j);
 
 //테스트용 함수
 void split_print(t_game *game, char **split);
