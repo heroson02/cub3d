@@ -6,7 +6,7 @@
 /*   By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 18:21:13 by yson              #+#    #+#             */
-/*   Updated: 2022/06/15 16:32:05 by yson             ###   ########.fr       */
+/*   Updated: 2022/06/15 16:51:18 by yson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,8 +124,6 @@ char	**lst_to_arr(t_game *game, t_list *head)
 		curr = curr->next;
 		i++;
 	}
-	ft_lstprint(head);
-	split_print(game, result);
 	ft_lstclear(&head, free_node);
 	return (result);
 }
