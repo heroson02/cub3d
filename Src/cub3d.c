@@ -6,18 +6,18 @@
 /*   By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 18:09:48 by kyujlee           #+#    #+#             */
-/*   Updated: 2022/06/15 15:51:00 by yson             ###   ########.fr       */
+/*   Updated: 2022/06/15 16:29:20 by yson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Inc/cub3d.h"
 
 //테스트용 함수이니 지우기
-void split_print(char **split)
+void split_print(t_game *game, char **split)
 {
 	int i = 0;
 
-	while (split[i])
+	while (split[i] && i < game->map.map_height)
 	{
 		printf("|%s|\n", split[i]);
 		i++;
@@ -47,7 +47,6 @@ void init_game(t_game *game)
     game->mlx_ptr = mlx_init();
 	read_map(game);
 	check_map(game);
-	// split_print(game->map.map);
     game->win_ptr = mlx_new_window(game->mlx_ptr, width, height, "cub3D");
 }
 

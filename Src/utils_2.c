@@ -6,7 +6,7 @@
 /*   By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 18:21:13 by yson              #+#    #+#             */
-/*   Updated: 2022/06/14 18:25:21 by yson             ###   ########.fr       */
+/*   Updated: 2022/06/15 16:32:05 by yson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,16 +113,19 @@ char	**lst_to_arr(t_game *game, t_list *head)
 	i = 0;
 	curr = head;
 	get_width_height(&game->map.map_width, &game->map.map_height, head);
+	// printf("width : %d, height : %d\n", game->map.map_width, game->map.map_height);
 	result = malloc(sizeof(char *) * (game->map.map_height + 1));
 	if (!result)
 		err_exit("malloc error");
 	fill_with_space(result, game->map.map_width, game->map.map_height);
 	while (i < game->map.map_height)
 	{
-		ft_strncpy(result[i], curr->content, sizeof(curr->content));
+		ft_strncpy(result[i], curr->content, ft_strlen(curr->content));
 		curr = curr->next;
 		i++;
 	}
+	ft_lstprint(head);
+	split_print(game, result);
 	ft_lstclear(&head, free_node);
 	return (result);
 }

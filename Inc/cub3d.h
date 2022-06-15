@@ -6,7 +6,7 @@
 /*   By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 18:08:52 by kyujlee           #+#    #+#             */
-/*   Updated: 2022/06/14 17:56:44 by yson             ###   ########.fr       */
+/*   Updated: 2022/06/15 16:28:50 by yson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -209,5 +209,5 @@ int	arg_check(int argc, char **argv, t_map_info *info);
 void	check_map(t_game *game);
 
 //테스트용 함수
-void split_print(char **split);
+void split_print(t_game *game, char **split);
 #endif
