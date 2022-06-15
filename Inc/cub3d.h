@@ -6,7 +6,7 @@
 /*   By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 18:08:52 by kyujlee           #+#    #+#             */
-/*   Updated: 2022/06/15 20:58:08 by yson             ###   ########.fr       */
+/*   Updated: 2022/06/15 22:40:00 by yson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -209,6 +209,7 @@ double	camera_flag(char c);
 */
 void read_map(t_game *game);
 int	arg_check(int argc, char **argv, t_map_info *info);
+void	remove_space(char **str, t_type type);
 
 /*
 ** check_map.c --- check map
@@ -219,6 +220,17 @@ void	check_map(t_game *game);
 ** convert_map.c --- convert map
 */
 void	convert_map(t_game *game, int i, int j);
+
+/*
+** read_utils.c --- util functions when read map
+*/
+int	map_valid_check(char *str);
+int	map_info_check(t_map_info *info);
+
+/*
+** source_check.c --- function checking sources
+*/
+void	handle_source(t_game *game, char *str, t_type type);
 
 //테스트용 함수
 void split_print(t_game *game, char **split);
