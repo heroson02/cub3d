@@ -6,7 +6,7 @@
 /*   By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 18:08:52 by kyujlee           #+#    #+#             */
-/*   Updated: 2022/06/15 17:15:16 by yson             ###   ########.fr       */
+/*   Updated: 2022/06/15 17:36:40 by yson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -199,6 +199,8 @@ char	**lst_to_arr(t_game *game, t_list *head);
 /*
 ** init.c --- related to init_info
 */
+void	rotate_camera(t_game *game, double rot);
+double	camera_flag(char c);
 
 /*
 ** parsing.c --- parse .cub file and check validity

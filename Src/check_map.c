@@ -6,20 +6,23 @@
 /*   By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 20:29:59 by yson              #+#    #+#             */
-/*   Updated: 2022/06/15 16:18:07 by yson             ###   ########.fr       */
+/*   Updated: 2022/06/15 17:33:43 by yson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Inc/cub3d.h"
 
-//바라보는 방향에 따라서 캐릭터가 처음에 시작할 때 방향 설정하기.
-// void	handle_character(t_game *game, char c)
-// {
-// 	if (c == 'N')
-// 	else if (c == 'S')
-// 	else if (c == 'E')
-// 	else if (c == 'W')
-// }
+void	handle_character(t_game *game, char c)
+{
+	if (c == 'N')
+		rotate_camera(game, camera_flag('N'));
+	else if (c == 'S')
+		rotate_camera(game, camera_flag('S'));
+	else if (c == 'E')
+		rotate_camera(game, camera_flag('E'));
+	else if (c == 'W')
+		rotate_camera(game, camera_flag('W'));
+}
 
 int	count_source(t_game *game, char **map)
 {

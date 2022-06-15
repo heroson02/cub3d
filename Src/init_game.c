@@ -6,7 +6,7 @@
 /*   By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 15:23:49 by kyujlee           #+#    #+#             */
-/*   Updated: 2022/06/15 17:15:40 by yson             ###   ########.fr       */
+/*   Updated: 2022/06/15 17:37:06 by yson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ double	camera_flag(char c)
 
 void    init_player(t_game *game, t_player *player)
 {
+	(void)game;
     player->pos.x = 12;
 	player->pos.y = 5;
 	player->dir.x = -1;
@@ -58,5 +59,5 @@ void    init_player(t_game *game, t_player *player)
 	player->plane.y = 0.66;
 	player->move_speed = 0.1;
 	player->rot_speed = 0.1;
-    rotate_camera(game, camera_flag('E'));
+    // rotate_camera(game, camera_flag('E'));
 }
