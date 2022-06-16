@@ -6,7 +6,7 @@
 /*   By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 15:29:18 by kyujlee           #+#    #+#             */
-/*   Updated: 2022/06/16 19:09:11 by kyujlee          ###   ########.fr       */
+/*   Updated: 2022/06/17 00:27:27 by yson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	dda(t_game *game, t_dda_calc *v)
 			v->map.y += v->step.y;
 			v->side = 1;
 		}
-		if (game->map.world_map[v->map.x][v->map.y] > 0)
+		if (game->map.map[v->map.x][v->map.y] > '0')
 			v->hit = 1;
 	}
 	if (v->side == 0)

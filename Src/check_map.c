@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyujlee <kyujlee@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 20:29:59 by yson              #+#    #+#             */
-/*   Updated: 2022/06/16 19:30:28 by kyujlee          ###   ########.fr       */
+/*   Updated: 2022/06/17 00:27:13 by yson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	handle_character(t_game *game, char c, int row, int col)
 		rotate(game, WEST_RADIANS);
 	game->player.pos.x = row + 0.5;
 	game->player.pos.y = col + 0.5;
+	game->map.map[row][col] = '0';
 }
 
 int	count_source(t_game *game, char **map)

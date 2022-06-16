@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   moving.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyujlee <kyujlee@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 15:30:28 by kyujlee           #+#    #+#             */
-/*   Updated: 2022/06/16 19:29:52 by kyujlee          ###   ########.fr       */
+/*   Updated: 2022/06/17 00:27:39 by yson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ void	moving(t_game *game)
 	dest.y = game->player.pos.y;
 	move_wasd(&dest, game);
 	rotate_lr(game);
-	if (game->map.world_map[(int)(dest.x)][(int)(game->player.pos.y)] != 1)
+	if (game->map.map[(int)(dest.x)][(int)(game->player.pos.y)] != '1')
 		game->player.pos.x = dest.x;
-	if (game->map.world_map[(int)(game->player.pos.x)][(int)(dest.y)] != 1)
+	if (game->map.map[(int)(game->player.pos.x)][(int)(dest.y)] != '1')
 		game->player.pos.y = dest.y;
 }
