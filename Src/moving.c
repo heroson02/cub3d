@@ -6,7 +6,7 @@
 /*   By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 15:30:28 by kyujlee           #+#    #+#             */
-/*   Updated: 2022/06/15 19:23:48 by yson             ###   ########.fr       */
+/*   Updated: 2022/06/16 18:16:21 by yson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,13 +98,8 @@ void    moving(t_game *game)
     dest.y = game->player.pos.y;
     move_wasd(&dest, game);
     rotate_lr(game);
-    if (game->map.world_map[(int)dest.x][(int)dest.y] != 1)
-    {
+    if (game->map.world_map[(int)(dest.x)][(int)(game->player.pos.y)] != 1)
         game->player.pos.x = dest.x;
+    if (game->map.world_map[(int)(game->player.pos.x)][(int)(dest.y)] != 1)
         game->player.pos.y = dest.y;
-    }
-	// if (game->map.world_map[(int)game->player.pos.x][(int)dest.y] != 1)
-    //     game->player.pos.x = dest.x;
-    // if (game->map.world_map[(int)dest.x][(int)game->player.pos.y] != 1)
-    //     game->player.pos.y = dest.y;
 }

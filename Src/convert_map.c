@@ -6,7 +6,7 @@
 /*   By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 18:33:00 by yson              #+#    #+#             */
-/*   Updated: 2022/06/15 22:35:08 by yson             ###   ########.fr       */
+/*   Updated: 2022/06/16 18:15:36 by yson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	convert_source(char c)
 		return (1);
 	else if (c == '0')
 		return (0);
-	else if (ft_strchr("NSEW", 0))
+	else if (ft_strchr("NSEW", c))
 		return (0);
 	else if (c == ' ')
 		return (' ');

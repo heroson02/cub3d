@@ -6,7 +6,7 @@
 #    By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/24 18:07:01 by kyujlee           #+#    #+#              #
-#    Updated: 2022/06/15 23:50:17 by yson             ###   ########.fr        #
+#    Updated: 2022/06/16 18:18:44 by yson             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ MLX_PATH = opengl
 MLXFLAGS = -L$(MLX_PATH) -lmlx -framework OpenGL -framework AppKit
 HEADER = include
 OBJS = $(SRCS:.c=.o)
-NAME = cub3d
+NAME = cub3D
 LIB_NAME = libft.a
 LIB_DIR = ./libft
 SRC_DIR = ./Src
