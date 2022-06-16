@@ -6,7 +6,7 @@
 /*   By: kyujlee <kyujlee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 15:23:49 by kyujlee           #+#    #+#             */
-/*   Updated: 2022/06/16 19:25:54 by kyujlee          ###   ########.fr       */
+/*   Updated: 2022/06/16 19:34:59 by kyujlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ void	init_player(t_player *player)
 	player->dir.y = 0;
 	player->plane.x = 0;
 	player->plane.y = 0.66;
-	player->move_speed = 0.05;
-	player->rot_speed = 0.05;
+	player->move_speed = 0.1;
+	player->rot_speed = 0.1;
 }
