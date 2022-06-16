@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: kyujlee <kyujlee@student.42seoul.kr>       +#+  +:+       +#+         #
+#    By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/24 18:07:01 by kyujlee           #+#    #+#              #
-#    Updated: 2022/06/16 18:59:04 by kyujlee          ###   ########.fr        #
+#    Updated: 2022/06/16 23:38:44 by yson             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,8 +26,7 @@ SRCS =		$(SRC_DIR)/gnl/get_next_line.c			\
 	   		$(SRC_DIR)/moving.c \
 	   		$(SRC_DIR)/utils.c
 CC = cc
-# CFLAGS= -Wextra -Werror -Wall
-CFLAGS= -g3 -fsanitize=address
+CFLAGS= -Wextra -Werror -Wall
 MLX_PATH = opengl
 MLXFLAGS = -L$(MLX_PATH) -lmlx -framework OpenGL -framework AppKit
 HEADER = include
