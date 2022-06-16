@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: kyujlee <kyujlee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 20:29:59 by yson              #+#    #+#             */
-/*   Updated: 2022/06/15 20:52:04 by yson             ###   ########.fr       */
+/*   Updated: 2022/06/16 19:30:28 by kyujlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 void	handle_character(t_game *game, char c, int row, int col)
 {
 	if (c == 'N')
-		rotate_camera(game, camera_flag('N'));
+		rotate(game, NORTH_RADIANS);
 	else if (c == 'S')
-		rotate_camera(game, camera_flag('S'));
+		rotate(game, SOUTH_RADIANS);
 	else if (c == 'E')
-		rotate_camera(game, camera_flag('E'));
+		rotate(game, EAST_RADIANS);
 	else if (c == 'W')
-		rotate_camera(game, camera_flag('W'));
+		rotate(game, WEST_RADIANS);
 	game->player.pos.x = row + 0.5;
 	game->player.pos.y = col + 0.5;
 }

@@ -6,7 +6,7 @@
 /*   By: kyujlee <kyujlee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 15:27:24 by kyujlee           #+#    #+#             */
-/*   Updated: 2022/06/15 14:41:41 by kyujlee          ###   ########.fr       */
+/*   Updated: 2022/06/16 19:03:53 by kyujlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ void	draw_ceiling(t_img_info img, int ceiling)
 	{
 		x = -1;
 		while (++x < WIDTH)
-			*(int *)(img.addr + (y * img.size_line + x * (img.bpp / 8))) = ceiling;
+			*(int *)(img.addr + (y * img.size_line
+						+ x * (img.bpp / 8))) = ceiling;
 	}
 }
 
@@ -36,6 +37,7 @@ void	draw_floor(t_img_info img, int floor)
 	{
 		x = -1;
 		while (++x < WIDTH)
-			*(int *)(img.addr + (y * img.size_line + x * (img.bpp / 8))) = floor;
+			*(int *)(img.addr + (y * img.size_line
+						+ x * (img.bpp / 8))) = floor;
 	}
 }

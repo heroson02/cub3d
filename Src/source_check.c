@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   source_check.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: kyujlee <kyujlee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 21:01:02 by yson              #+#    #+#             */
-/*   Updated: 2022/06/15 22:54:58 by yson             ###   ########.fr       */
+/*   Updated: 2022/06/16 18:55:18 by kyujlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,13 @@
 void	handle_texture(t_game *game, char *path, t_type type)
 {
 	if (type == E_NO)
-		game->map.img[0] = load_img(game->mlx_ptr,
-				WALL_WIDTH, WALL_HEIGHT, path, game->win_ptr);
+		game->map.img[0] = load_img(game->mlx_ptr, path, game->win_ptr);
 	else if (type == E_EA)
-		game->map.img[1] = load_img(game->mlx_ptr,
-				WALL_WIDTH, WALL_HEIGHT, path, game->win_ptr);
+		game->map.img[1] = load_img(game->mlx_ptr, path, game->win_ptr);
 	else if (type == E_WE)
-		game->map.img[2] = load_img(game->mlx_ptr,
-				WALL_WIDTH, WALL_HEIGHT, path, game->win_ptr);
+		game->map.img[2] = load_img(game->mlx_ptr, path, game->win_ptr);
 	else if (type == E_SO)
-		game->map.img[3] = load_img(game->mlx_ptr,
-				WALL_WIDTH, WALL_HEIGHT, path, game->win_ptr);
+		game->map.img[3] = load_img(game->mlx_ptr, path, game->win_ptr);
 }
 
 void	handle_color(t_map_info *info, char *str, t_type type)

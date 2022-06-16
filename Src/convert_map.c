@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   convert_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: kyujlee <kyujlee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 18:33:00 by yson              #+#    #+#             */
-/*   Updated: 2022/06/16 18:15:36 by yson             ###   ########.fr       */
+/*   Updated: 2022/06/16 18:43:55 by kyujlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,8 @@ void	convert_map(t_game *game, int i, int j)
 		while (pre_map[i][j] && j < game->map.map_width)
 		{
 			map[i][j] = convert_source(pre_map[i][j]);
-			printf("%d", map[i][j]);
 			j++;
 		}
-		printf("\n");
 		i++;
 	}
 	game->map.world_map = map;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: kyujlee <kyujlee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 15:24:18 by kyujlee           #+#    #+#             */
-/*   Updated: 2022/06/15 17:15:46 by yson             ###   ########.fr       */
+/*   Updated: 2022/06/16 19:32:00 by kyujlee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,22 @@ int	end_program(void)
 	return (0);
 }
 
-t_img_info	load_img(void *mlx, int w, int h, char *path,void *win_ptr)
+t_img_info	load_img(void *mlx, char *path, void *win_ptr)
 {
 	t_img_info	img;
 	void		*temp;
+	int			w;
+	int			h;
 
+	w = WALL_WIDTH;
+	h = WALL_HEIGHT;
 	(void)win_ptr;
 	temp = mlx_xpm_file_to_image(mlx, path, &w, &h);
 	if (!temp)
 		err_exit("Wrong file");
 	img.img_ptr = temp;
-	img.addr = mlx_get_data_addr(img.img_ptr, &img.bpp, &img.size_line, &img.endian);
+	img.addr = mlx_get_data_addr(img.img_ptr, &img.bpp,
+			&img.size_line, &img.endian);
 	return (img);
 }
 
@@ -46,8 +51,8 @@ int	key_press(int keycode, t_game *game)
 		game->key_state.l = true;
 	else if (keycode == K_RIGHT)
 		game->key_state.r = true;
-    else if (keycode == K_ESC)
-        end_program();
+	else if (keycode == K_ESC)
+		end_program();
 	return (0);
 }
 
