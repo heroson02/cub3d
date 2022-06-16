@@ -6,7 +6,7 @@
 /*   By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 18:21:13 by yson              #+#    #+#             */
-/*   Updated: 2022/06/15 21:08:21 by yson             ###   ########.fr       */
+/*   Updated: 2022/06/16 23:43:37 by yson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	ft_atoi_ad(const char *str)
 	while (str[i])
 	{
 		if (!ft_isdigit(str[i]))
-			err_exit("put only number");
+			err_exit("put only 0 ~ 256 number in rgb");
 		i++;
 	}
 	result = ft_atoi(str);
