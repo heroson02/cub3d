@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyujlee <kyujlee@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 18:09:48 by kyujlee           #+#    #+#             */
-/*   Updated: 2022/06/16 19:03:20 by kyujlee          ###   ########.fr       */
+/*   Updated: 2022/06/17 14:47:53 by yson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ void	init_game(t_game *game)
 	game->mlx_ptr = mlx_init();
 	read_map(game);
 	check_map(game);
-	convert_map(game, 0, 0);
 	game->win_ptr = mlx_new_window(game->mlx_ptr, WIDTH, HEIGHT, "cub3D");
 }
 

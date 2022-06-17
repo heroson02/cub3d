@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyujlee <kyujlee@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 18:08:52 by kyujlee           #+#    #+#             */
-/*   Updated: 2022/06/16 19:32:49 by kyujlee          ###   ########.fr       */
+/*   Updated: 2022/06/17 14:14:06 by yson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,6 @@ typedef struct s_map_info
 	int			ceiling;
 	t_img_info	img[4];
 	char		**map;
-	int			**world_map;
 	int			map_fd;
 	t_list		*map_lst;
 	int			ceiling_flag;
@@ -207,11 +206,6 @@ void		remove_space(char **str, t_type type);
 ** check_map.c --- check map
 */
 void		check_map(t_game *game);
-
-/*
-** convert_map.c --- convert map
-*/
-void		convert_map(t_game *game, int i, int j);
 
 /*
 ** read_utils.c --- util functions when read map

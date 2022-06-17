@@ -6,7 +6,7 @@
 /*   By: yson <yson@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 18:25:36 by yson              #+#    #+#             */
-/*   Updated: 2022/06/16 23:46:33 by yson             ###   ########.fr       */
+/*   Updated: 2022/06/17 14:47:56 by yson             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,10 @@ void	read_map(t_game *game)
 		if (ret < 0)
 			err_exit("read error");
 		else if (ret == 0)
+		{
+			free(temp);
 			break ;
+		}
 		type = source_type(temp);
 		if (type == E_ERROR)
 			err_exit("Wrong map source");
