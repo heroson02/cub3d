@@ -12,7 +12,8 @@
 
 #ifndef CUB3D_H
 # define CUB3D_H
-# include <mlx.h>
+// # include <mlx.h>
+# include "../opengl/mlx.h"
 # include <math.h>
 # include <string.h>
 # include <stdio.h>
