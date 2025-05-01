@@ -1,5 +1,6 @@
 # cub3d readme
 ![Image](https://github.com/user-attachments/assets/7c579ae9-2be6-4735-8c37-b15973367a36)
+
 울펜슈타인을 모방한 간단한 3D 게임입니다.
 ### 프로그램 실행 방법
 
