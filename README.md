@@ -1,5 +1,5 @@
 # cub3d readme
-[![Image](https://github.com/user-attachments/assets/7c579ae9-2be6-4735-8c37-b15973367a36)](https://file.notion.so/f/f/b9b3d33f-5d0e-448f-9849-1d0c80ab40d4/d1f354b4-0fb0-4a1d-9bb8-b20a79ef7f00/cub3dGIF.gif?table=block&id=3dc1446e-637d-4e20-9969-036a5ee750f2&spaceId=b9b3d33f-5d0e-448f-9849-1d0c80ab40d4&expirationTimestamp=1746108000000&signature=_0XC4Ef3fKe20fktwQoFPGOIs6EHtpgTIPHeh2WYg0Y)
+![Image](https://github.com/user-attachments/assets/1044b0aa-ca95-42d5-8596-af73b40266ce)
 
 울펜슈타인을 모방한 간단한 3D 게임입니다.
 ### 프로그램 실행 방법
